@@ -1,32 +1,39 @@
-"use client";
+'use client'; // Etkileşimli state yönetimi için bu zorunludur.
 
-import { useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
+import { useState } from 'react';
+import { FiChevronDown } from 'react-icons/fi';
 
 const faqData = [
   {
-    question: "Yaptığım bağış tam olarak nereye gidiyor?",
-    answer:
-      "Tüm bağışlar, doğrudan üç ana programımıza aktarılır: Öğrenci bursları, kodlama kamplarının masrafları ve mentorluk ağımızın operasyonel giderleri. Finansal şeffaflık raporlarımızı her 3 ayda bir web sitemizde yayınlıyoruz.",
+    question: 'Yaptığım bağış tam olarak nereye gidiyor?',
+    answer: 'Tüm bağışlar, doğrudan üç ana programımıza aktarılır: Öğrenci bursları, kodlama kamplarının masrafları ve mentorluk ağımızın operasyonel giderleri. Finansal şeffafllık raporlarımızı her 3 ayda bir web sitemizde yayınlıyoruz.',
   },
   {
-    question: "Vakfınız yasal bir statüye sahip mi?",
-    answer:
-      "Evet, DevPledge Vakfı, ilgili kanunlar çerçevesinde kurulmuş, kâr amacı gütmeyen bir eğitim vakfıdır. Tüm faaliyetlerimiz resmi denetime tabidir.",
+    question: 'Vakfınız yasal bir statüye sahip mi?',
+    answer: 'Evet, DevPledge Vakfı, ilgili kanunlar çerçevesinde kurulmuş, kâr amacı gütmeyen bir eğitim vakfıdır. Tüm faaliyetlerimiz resmi denetime tabidir.',
   },
   {
-    question: "Bağış yaptıktan sonra bir bilgilendirme alacak mıyım?",
-    answer:
-      "Kesinlikle. Bağışınızın ardından e-posta adresinize resmi bir teşekkür ve bağış makbuzu gönderilir. Ayrıca, bültenimize kaydolarak bağışınızın yarattığı etkiyi gösteren başarı hikayelerini ve gelişmeleri düzenli olarak takip edebilirsiniz.",
+    question: 'Bağış yaptıktan sonra bir bilgilendirme alacak mıyım?',
+    answer: 'Kesinlikle. Bağışınızın ardından e-posta adresinize resmi bir teşekkür ve bağış makbuzu gönderilir. Ayrıca, bültenimize kaydolarak bağışınızın yarattığı etkiyi gösteren başarı hikayelerini ve gelişmeleri düzenli olarak takip edebilirsiniz.',
   },
   {
-    question: "Gönüllü olarak nasıl destek olabilirim?",
-    answer:
-      'Harika bir soru! Para bağışının yanı sıra, mentorluk programımıza katılarak veya etkinliklerimizde gönüllü olarak çalışarak da bize destek olabilirsiniz. Web sitemizdeki "Gönüllü Ol" formunu doldurarak bizimle iletişime geçebilirsiniz.',
+    question: 'Gönüllü olarak nasıl destek olabilirim?',
+    answer: 'Harika bir soru! Para bağışının yanı sıra, mentorluk programımıza katılarak veya etkinliklerimizde gönüllü olarak çalışarak da bize destek olabilirsiniz. Web sitemizdeki "Gönüllü Ol" formunu doldurarak bizimle iletişime geçebilirsiniz.',
   },
 ];
 
-const FaqItem = ({ item, isOpen, onClick }: any) => {
+// DÜZELTME 1: FaqItem bileşeninin alacağı props'lar için bir tip arayüzü (interface) tanımlandı.
+interface FaqItemProps {
+  item: {
+    question: string;
+    answer: string;
+  };
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+// DÜZELTME 2: ": any" ifadesi, oluşturduğumuz ": FaqItemProps" tipi ile değiştirildi.
+const FaqItem = ({ item, isOpen, onClick }: FaqItemProps) => {
   return (
     <div className="border-b border-gray-700/60">
       <button
@@ -36,14 +43,14 @@ const FaqItem = ({ item, isOpen, onClick }: any) => {
         <span className="text-lg font-medium text-white">{item.question}</span>
         <FiChevronDown
           className={`transform transition-transform duration-300 ${
-            isOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
+            isOpen ? 'rotate-180 text-cyan-400' : 'text-gray-400'
           }`}
           size={24}
         />
       </button>
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-96 pb-6" : "max-h-0"
+          isOpen ? 'max-h-96 pb-6' : 'max-h-0'
         }`}
       >
         <p className="text-gray-300 leading-relaxed">{item.answer}</p>
