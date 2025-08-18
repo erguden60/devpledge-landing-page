@@ -24,7 +24,7 @@ export const ChatBubble = ({ onClick }: ChatBubbleProps) => {
         focus:ring-4 focus:ring-cyan-300
         transition-all duration-300 ease-in-out
         animate-pulse-slow
-        cursor-pointer /* <-- YENİ EKLENEN CLASS */
+        cursor-pointer 
       "
       aria-label="Sohbeti aç"
     >
