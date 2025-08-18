@@ -1,4 +1,4 @@
-'use client'; // Etkileşimli state yönetimi için bu zorunludur.
+'use client'; 
 
 import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
@@ -22,7 +22,6 @@ const faqData = [
   },
 ];
 
-// DÜZELTME 1: FaqItem bileşeninin alacağı props'lar için bir tip arayüzü (interface) tanımlandı.
 interface FaqItemProps {
   item: {
     question: string;
@@ -32,7 +31,6 @@ interface FaqItemProps {
   onClick: () => void;
 }
 
-// DÜZELTME 2: ": any" ifadesi, oluşturduğumuz ": FaqItemProps" tipi ile değiştirildi.
 const FaqItem = ({ item, isOpen, onClick }: FaqItemProps) => {
   return (
     <div className="border-b border-gray-700/60">
