@@ -1,4 +1,4 @@
-"use client"; // Bu bileşen state ve etkileşim içerdiği için client component olmalı.
+"use client"; 
 
 import { useState, useRef, useEffect } from "react";
 import { IoMdClose, IoMdSend } from "react-icons/io";
