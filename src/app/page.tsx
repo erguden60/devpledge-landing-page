@@ -1,7 +1,6 @@
 // app/page.tsx
 
-// DOĞRU import yolu (HeroSection'ı import ediyoruz)
-// FeaturesSe{ction ve diğerleri de buraya eklenecek.
+
 import { HeroSection } from "@/components/sections/HeroSection";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { ProgramsSection } from "@/components/sections/ProgramsSection";
@@ -17,8 +16,7 @@ export default function Home() {
       <DonationSection />
       <FAQSection />
 
-      {/* <FeaturesSection /> */}
-      {/* <DonationSection /> */}
+      
     </>
   );
 }
