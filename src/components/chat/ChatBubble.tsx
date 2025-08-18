@@ -1,6 +1,4 @@
-// components/chat/ChatBubble.tsx
-
-import { BsChatDotsFill } from "react-icons/bs";
+import { BsChatDotsFill } from 'react-icons/bs';
 
 interface ChatBubbleProps {
   onClick: () => void;
@@ -11,8 +9,10 @@ export const ChatBubble = ({ onClick }: ChatBubbleProps) => {
     <button
       onClick={onClick}
       className="
-        fixed bottom-8 right-8 z-50
-        w-16 h-16 
+        fixed bottom-4 right-4 z-50  
+        sm:bottom-8 sm:right-8      
+        w-14 h-14                     
+        sm:w-16 sm:h-16               
         bg-cyan-500 
         rounded-full 
         shadow-lg 
@@ -24,11 +24,12 @@ export const ChatBubble = ({ onClick }: ChatBubbleProps) => {
         focus:ring-4 focus:ring-cyan-300
         transition-all duration-300 ease-in-out
         animate-pulse-slow
-        cursor-pointer 
+        cursor-pointer
       "
       aria-label="Sohbeti aç"
     >
-      <BsChatDotsFill size={32} />
+      {/* İkon boyutu da ekran boyutuna göre ayarlandı */}
+      <BsChatDotsFill className="w-7 h-7 sm:w-8 sm:h-8" />
     </button>
   );
 };
